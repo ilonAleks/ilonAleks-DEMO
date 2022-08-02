@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { AddTodo } from './src/AddTodo';
 import { Navbar } from './src/Navbar';
+import { Todo } from './src/Todo';
 
 export default function App() {
   const [todos, setTodos] = useState([])
@@ -38,7 +39,16 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 20,
     paddingVertical: 10,
-  }
+  },
+  // todo: {
+  //   flexDirection: 'row',
+  //   alignItems: 'center',
+  //   padding: 15,
+  //   borderWidth: 3,
+  //   borderColor: '#eee',
+  //   borderRadius: 5,
+  //   marginBottom: 10,
+  // }
 });
 
 

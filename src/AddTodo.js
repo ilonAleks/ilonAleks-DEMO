@@ -1,12 +1,18 @@
 import React, { useState } from "react";
-import { View, TextInput, StyleSheet, Button } from "react-native";
+import { View, TextInput, StyleSheet, Button, Alert } from "react-native";
 
 export const AddTodo = ({ onSubmit }) => {
 	const [value, setValue] = useState('')
 
 	const pressHandler = () => {
-		onSubmit(value)
-		setValue('')
+		if (value.trim()) { //проверка, чтобы не добавлялась пустая строка
+			onSubmit(value)
+			setValue('')
+		} else {
+			Alert.alert('Ты хочешь добавить пустоту...')
+		}
+
+
 	}
 
 	return (
