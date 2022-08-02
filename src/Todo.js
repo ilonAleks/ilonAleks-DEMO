@@ -2,16 +2,12 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 export const Todo = ({ todo, onRemove }) => {
-	const longPressHandler = () => {
-		onRemove(todo.id)
-	}
-
 	return (
 		<TouchableOpacity
 			activeOpacity={0.5}
 			// засветление на 50 %
 			onPress={() => console.log('Pressed', todo.id)}
-			onLongPress={longPressHandler}
+			onLongPress={onRemove.bind(null, todo.id)}
 		>
 			{/* засветление нажатого элемента */}
 			<View style={styles.todo}>
