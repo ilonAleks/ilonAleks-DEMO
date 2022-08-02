@@ -1,19 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
-import { AddTodo } from './src/AddTodo';
-import { Navbar } from './src/Navbar';
-import { Todo } from './src/Todo';
+import { Navbar } from './src/components/Navbar';
+import { MainScreen } from './src/screens/MainScreen';
+import { TodoScreen } from './src/screens/TodoScreen';
 
 export default function App() {
+  const [todoId, setTodoId] = useState(null)
   const [todos, setTodos] = useState([])
 
-  const addTodo = (title) => {
-    // const newTodo = {
-    //   id: Date.now().toString(),
-    //   title: title
-    // }
-
+  const addTodo = title => {
     setTodos(prev => [...prev, {
       id: Date.now().toString(),
       title
@@ -23,16 +18,21 @@ export default function App() {
     setTodos(prev => prev.filter(todo => todo.id !== id))
   }   // ! не понятна логика. Спросить у Наташи
 
+  let content = (
+    <MainScreen todos={todos} addTodo={addTodo} removeTodo={removeTodo} openTodo={(id) => {
+      setTodoId(id)
+    }} />
+  )
+  // не запустилось
+
+  if (todoId) {
+    content = <TodoScreen />
+  }
+
   return (
     <View>
       <Navbar title='Todo App' />
-      <View style={styles.container}>
-        <AddTodo onSubmit={addTodo} />
-        <FlatList //! урок 21 скрол не работает
-          keyExtractor={item => item.id.toString()}
-          data={todos}
-          renderItem={({ item }) => <Todo todo={item} onRemove={removeTodo} />} />
-      </View>
+      <View style={styles.container}></View>
     </View >
   )
 }
