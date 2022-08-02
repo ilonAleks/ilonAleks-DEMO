@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { AddTodo } from './src/AddTodo';
 import { Navbar } from './src/Navbar';
 import { Todo } from './src/Todo';
@@ -19,19 +19,21 @@ export default function App() {
       title
     }])
   }
+  const removeTodo = id => {
+    setTodos(prev => prev.filter(todo => todo.id !== id))
+  }   // ! не понятна логика. Спросить у Наташи
+
   return (
     <View>
       <Navbar title='Todo App' />
       <View style={styles.container}>
         <AddTodo onSubmit={addTodo} />
-
-        <View>
-          {todos.map(todo => (
-            <Todo todo={todo} key={todo.id} />
-          ))}
-        </View>
+        <FlatList //! урок 21 скрол не работает
+          keyExtractor={item => item.id.toString()}
+          data={todos}
+          renderItem={({ item }) => <Todo todo={item} onRemove={removeTodo} />} />
       </View>
-    </View>
+    </View >
   )
 }
 
@@ -40,15 +42,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
   },
-  // todo: {
-  //   flexDirection: 'row',
-  //   alignItems: 'center',
-  //   padding: 15,
-  //   borderWidth: 3,
-  //   borderColor: '#eee',
-  //   borderRadius: 5,
-  //   marginBottom: 10,
-  // }
 });
 
 

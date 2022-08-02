@@ -1,11 +1,23 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-export const Todo = ({ todo }) => {
+export const Todo = ({ todo, onRemove }) => {
+	const longPressHandler = () => {
+		onRemove(todo.id)
+	}
+
 	return (
-		<View style={styles.todo}>
-			<Text>{todo.title}</Text>
-		</View>
+		<TouchableOpacity
+			activeOpacity={0.5}
+			// засветление на 50 %
+			onPress={() => console.log('Pressed', todo.id)}
+			onLongPress={longPressHandler}
+		>
+			{/* засветление нажатого элемента */}
+			<View style={styles.todo}>
+				<Text>{todo.title}</Text>
+			</View>
+		</TouchableOpacity>
 	)
 }
 
@@ -14,7 +26,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'center',
 		padding: 15,
-		borderWidth: 3,
+		borderWidth: 1,
 		borderColor: '#eee',
 		borderRadius: 5,
 		marginBottom: 10,
