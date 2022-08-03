@@ -9,7 +9,8 @@ export const MainScreen = ({ addTodo, todos, removeTodo, openTodo }) => {
 		<FlatList //! урок 21 скрол не работает
 			keyExtractor={item => item.id.toString()}
 			data={todos}
-			renderItem={({ item }) => <Todo todo={item} onRemove={removeTodo} onOpen={openTodo} />} />
+			renderItem={({ item }) => <Todo todo={item} onRemove={removeTodo} onOpen={openTodo} />}
+		/>
 	</View>
 }
 

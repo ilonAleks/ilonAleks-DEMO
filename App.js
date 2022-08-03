@@ -6,7 +6,10 @@ import { TodoScreen } from './src/screens/TodoScreen';
 
 export default function App() {
   const [todoId, setTodoId] = useState(null)
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState([
+    { id: 1, title: 'asdfgh' },
+    { id: 2, title: 'qwerty' },
+  ])
 
   const addTodo = title => {
     setTodos(prev => [...prev, {
@@ -16,18 +19,18 @@ export default function App() {
   }
   const removeTodo = id => {
     setTodos(prev => prev.filter(todo => todo.id !== id))
-  }   // ! не понятна логика. Спросить у Наташи
+  }   // todo не понятна логика. Спросить у Наташи
 
   let content = (
-    <MainScreen todos={todos} addTodo={addTodo} removeTodo={removeTodo} openTodo={(id) => {
-      setTodoId(id)
-    }} />
+    <MainScreen todos={todos} addTodo={addTodo} removeTodo={removeTodo} openTodo={setTodoId} />
   )
-  // не запустилось
+  // ! не запустилось 25 урок 2:30
 
   if (todoId) {
-    content = <TodoScreen />
+    const selectedTodo = todos.find(todo => todo.id === todoId)
+    content = <TodoScreen goBack={() => setTodoId(null)} todo={selectedTodo} />
   }
+  // ! запустилось 25 урок 4:05, но отображается только Navbar
 
   return (
     <View>
