@@ -21,11 +21,11 @@ export const AddTodo = ({ onSubmit }) => {
 				style={styles.input}
 				onChangeText={setValue}
 				value={value}
-				placeholder="Введите название"
+				placeholder="Enter the title"
 				autoCorrect={false}
 				autoCapitalize='none'
 			/>
-			<Button title="Добавить" onPress={pressHandler} />
+			<Button title="Add" onPress={pressHandler} />
 		</View>
 	)
 }
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
 		marginBottom: 15,
 	},
 	input: {
-		width: '75%',
+		width: '85%',
 		padding: 10,
 		borderStyle: 'solid',
 		borderBottomWidth: 2,

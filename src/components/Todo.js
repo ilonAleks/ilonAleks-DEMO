@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-export const Todo = ({ todo, onRemove }) => {
+export const Todo = ({ todo, onRemove, onOpen }) => {
 	return (
 		<TouchableOpacity
 			activeOpacity={0.5}
 			// засветление на 50 %
-			onPress={() => console.log('Pressed', todo.id)}
+			onPress={() => onOpen(todo.Id)}
 			onLongPress={onRemove.bind(null, todo.id)}
 		>
 			{/* засветление нажатого элемента */}
