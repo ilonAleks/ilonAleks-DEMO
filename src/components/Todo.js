@@ -6,7 +6,7 @@ export const Todo = ({ todo, onRemove, onOpen }) => {
 		<TouchableOpacity
 			activeOpacity={0.5}
 			// засветление на 50 %
-			onPress={() => onOpen(todo.Id)}
+			onPress={() => onOpen(todo.id)}
 			onLongPress={onRemove.bind(null, todo.id)}
 		>
 			{/* засветление нажатого элемента */}

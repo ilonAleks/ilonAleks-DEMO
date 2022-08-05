@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { Navbar } from './src/components/Navbar';
@@ -7,14 +6,12 @@ import { TodoScreen } from './src/screens/TodoScreen';
 
 export default function App() {
   const [todoId, setTodoId] = useState(null)
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState([
+    { id: '1', title: '11111' },
+    { id: '2', title: '22222' },
+  ])
 
   const addTodo = (title) => {
-    // const newTodo = {
-    //   id: Date.now().toString(),
-    //   title: title
-    // }
-
     setTodos(prev => [...prev, {
       id: Date.now().toString(),
       title
@@ -36,7 +33,8 @@ export default function App() {
   )
 
   if (todoId) {
-    content = <TodoScreen goBack={() => setTodoId(null)} />
+    const selectedTodo = todos.find(todo => todo.id === todoId)
+    content = <TodoScreen goBack={() => setTodoId(null)} todo={selectedTodo} />
   }
   return (
     <View>
