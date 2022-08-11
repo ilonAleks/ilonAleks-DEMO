@@ -4,8 +4,8 @@ import { StyleSheet, Text, View, FlatList, Button } from 'react-native'
 export const TodoScreen = ({ goBack, todo }) => {
 	return (
 		<View>
-			{/* <Text>{todo.title}</Text> */}
-			<Text>'todo.title, который выдает ошибку'</Text>
+			<Text>{todo.title}</Text>
+			{/* <Text>'todo.title, который выдает ошибку'</Text> */}
 			<View style={styles.buttons}>
 				<View style={styles.button}>
 					<Button title='Go back' color='#757575' onPress={goBack} />
