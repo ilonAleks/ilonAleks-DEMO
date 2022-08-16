@@ -26,8 +26,8 @@ export default function App() {
       todos={todos}
       addTodo={addTodo}
       removeTodo={removeTodo}
-      openTodo={todoid => {
-        setTodoId(id)
+      openTodo={todoId => {
+        setTodoId(todoId)
       }}
     />
   )

@@ -1,9 +1,10 @@
 import React from 'react'
-import { StyleSheet, Text, View, FlatList, Button } from 'react-native'
+import { StyleSheet, Text, View, Button } from 'react-native'
 import { AppCard } from '../components/ui/AppCard'
 import { THEME } from '../theme'
 
 export const TodoScreen = ({ goBack, todo }) => {
+	// console.log(todo)
 	return (
 		<View>
 			<AppCard style={styles.card}>
