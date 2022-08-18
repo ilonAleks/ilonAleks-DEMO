@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import { StyleSheet, TextInput, View, Button, Modal, Alert } from 'react-native'
+import { MaterialIcons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
+
 import { THEME } from '../theme'
+import { AppButton } from './ui/AppButton'
 
 export const EditModal = ({ visible, onCancel, value, onSave }) => {
 	const [title, setTitle] = useState(value)
@@ -29,13 +33,16 @@ export const EditModal = ({ visible, onCancel, value, onSave }) => {
 					autoCorrect={false}
 					maxLength={50} />
 				<View style={styles.buttons}>
-					<Button
-						title='Cancel'
-						onPress={onCancel}
-						color={THEME.Danger_color} />
-					<Button
-						title='Save'
-						onPress={saveHandler} />
+					<AppButton onPress={onCancel}
+						color={THEME.Danger_color}>
+						<MaterialIcons name="cancel" size={24} color="white" />
+					</AppButton>
+
+
+					<AppButton onPress={saveHandler}>
+						<Feather name="save" size={24} color="white" />
+					</AppButton>
+
 				</View>
 			</View>
 		</Modal >
@@ -56,9 +63,12 @@ const styles = StyleSheet.create({
 		width: '80%'
 	},
 	buttons: {
-		width: '100%',
-		marginTop: 10,
+		padding: 10,
 		flexDirection: 'row',
-		justifyContent: 'space-around'
+		justifyContent: 'space-around',
+		// alignItems: 'center',
+		// marginBottom: 15,
+		// paddingLeft: 20
+		paddingLeft: 20, width: 350, height: 200
 	}
 })
