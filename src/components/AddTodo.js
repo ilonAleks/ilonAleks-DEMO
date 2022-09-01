@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TextInput, StyleSheet, Alert } from "react-native";
+import { View, TextInput, StyleSheet, Alert, Keyboard } from "react-native";
 import { THEME } from '../theme'
 import { Entypo } from '@expo/vector-icons';
 
@@ -10,6 +10,7 @@ export const AddTodo = ({ onSubmit }) => {
 		if (value.trim()) { //проверка, чтобы не добавлялась пустая строка
 			onSubmit(value)
 			setValue('')
+			Keyboard.dismiss()
 		} else {
 			Alert.alert('Ты хочешь добавить пустоту...')
 		}
