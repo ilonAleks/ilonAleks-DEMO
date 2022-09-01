@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native'
+import { StyleSheet, Text, View, Dimensions } from 'react-native'
 import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
@@ -54,7 +54,8 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between'
 	},
 	button: {
-		width: '45%'
+		// width: Dimensions.get('window').width / 3
+		width: Dimensions.get('window').width > 350 ? 150 : 100
 	},
 	card: {
 		padding: 15,
