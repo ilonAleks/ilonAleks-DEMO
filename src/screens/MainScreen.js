@@ -1,15 +1,39 @@
-import React from 'react'
-import { StyleSheet, View, FlatList, Text, Image } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { StyleSheet, View, FlatList, Text, Image, Dimensions } from 'react-native'
 import { AddTodo } from '../components/AddTodo'
 import { Todo } from '../components/Todo'
+import { THEME } from '../theme'
 
 export const MainScreen = ({ addTodo, todos, removeTodo, openTodo }) => {
-	let content = (<FlatList //! урок 21 скрол не работает
-		keyExtractor={item => item.id.toString()}
-		data={todos}
-		renderItem={({ item }) => <Todo todo={item} onRemove={removeTodo} onOpen={openTodo} />}
-	/>)
+	const [deviceWidth, setDeviceWidth] = useState(
+		Dimensions.get('window').width - THEME.Padding_hor * 2
+	)
 
+	useEffect(() => {
+		const update = () => {
+			const width = Dimensions.get('window').width - THEME.Padding_hor * 2
+			setDeviceWidth(width)
+		}
+		Dimensions.addEventListener('change', update)
+
+
+		return () => {
+			Dimensions.remove('change', update)
+		}
+	})
+
+
+	let content = (
+		<View style={{ width: deviceWidth }}>
+			<FlatList //! урок 21 скрол не работает
+				keyExtractor={item => item.id.toString()}
+				data={todos}
+				renderItem={({ item }) => (
+					<Todo todo={item} onRemove={removeTodo} onOpen={openTodo} />
+				)}
+			/>
+		</View>
+	)
 	if (todos.length === 0) {
 		content = <View style={styles.imgWrap}>
 			<Image

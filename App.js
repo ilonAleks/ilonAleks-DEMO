@@ -3,12 +3,13 @@ import { StyleSheet, View, Alert } from 'react-native';
 import { Navbar } from './src/components/Navbar';
 import { MainScreen } from './src/screens/MainScreen';
 import { TodoScreen } from './src/screens/TodoScreen';
+import { THEME } from './src/theme';
 
 export default function App() {
   const [todoId, setTodoId] = useState(null)
   const [todos, setTodos] = useState([
-    { id: '1', title: '11111' },
-    // { id: '2', title: '22222' },
+    { id: '1', title: 'Learn React Native' },
+    { id: '2', title: 'Learn English' },
     // { id: '3', title: '22222' },
     // { id: '4', title: '22222' },
     // { id: '5', title: '22222' },
@@ -98,7 +99,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 20,
+    paddingHorizontal: THEME.Padding_hor,
     paddingVertical: 10,
   },
 });

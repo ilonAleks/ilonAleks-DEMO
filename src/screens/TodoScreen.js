@@ -55,7 +55,8 @@ const styles = StyleSheet.create({
 	},
 	button: {
 		// width: Dimensions.get('window').width / 3
-		width: Dimensions.get('window').width > 350 ? 150 : 100
+		width: Dimensions.get('window').width > 350 ? 150 : 100,
+
 	},
 	card: {
 		padding: 15,
