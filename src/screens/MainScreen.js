@@ -14,12 +14,9 @@ export const MainScreen = ({ addTodo, todos, removeTodo, openTodo }) => {
 			const width = Dimensions.get('window').width - THEME.Padding_hor * 2
 			setDeviceWidth(width)
 		}
-		Dimensions.addEventListener('change', update)
+		const listener = Dimensions.addEventListener('change', update)
 
-
-		return () => {
-			Dimensions.remove('change', update)
-		}
+		return () => { listener.remove() }
 	})
 
 

@@ -63,12 +63,18 @@ const styles = StyleSheet.create({
 		width: '80%'
 	},
 	buttons: {
-		padding: 10,
-		flexDirection: 'row',
-		justifyContent: 'space-around',
-		// alignItems: 'center',
+		// padding: 10,
+		// flexDirection: 'row',
+		// justifyContent: 'space-around',
 		// marginBottom: 15,
-		// paddingLeft: 20
-		paddingLeft: 20, width: 350, height: 200
+		// paddingLeft: 20,
+		// paddingLeft: 20,
+		// width: 400
+		paddingHorizontal: 20,
+		paddingVertical: 10,
+		borderRadius: 5,
+		flexDirection: 'row',
+		alignContent: 'center',
+		justifyContent: 'space-around'
 	}
 })
