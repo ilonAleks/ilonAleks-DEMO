@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, UPDATE_TODO } from "../type"
+import { ADD_TODO, REMOVE_TODO, UPDATE_TODO } from "../Type.js"
 
 const handlers = {
 	[ADD_TODO]: (state, { title }) => ({

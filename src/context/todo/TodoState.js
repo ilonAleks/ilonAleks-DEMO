@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
-import { TodoContext } from "./TodoContext";
-import { todoReducer } from "./TodoReducer";
-import { ADD_TODO, REMOVE_TODO, UPDATE_TODO } from '../type'
+import { TodoContext } from "./TodoContext.js";
+import { todoReducer } from "./TodoReducer.js";
+import { ADD_TODO, REMOVE_TODO, UPDATE_TODO } from '../Type.js'
 
 export const TodoState = ({ children }) => {
 	const initialState = {

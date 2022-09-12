@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { StyleSheet, View, FlatList, Text, Image, Dimensions } from 'react-native'
-import { AddTodo } from '../components/AddTodo'
-import { Todo } from '../components/Todo'
-import { THEME } from '../theme'
+import { AddTodo } from '../components/AddTodo.js'
+import { Todo } from '../components/Todo.js'
+import { THEME } from '../Theme.js'
 
 export const MainScreen = ({ addTodo, todos, removeTodo, openTodo }) => {
 	const [deviceWidth, setDeviceWidth] = useState(

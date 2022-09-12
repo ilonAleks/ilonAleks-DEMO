@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, TextInput, StyleSheet, Alert, Keyboard } from "react-native";
-import { THEME } from '../theme'
+import { THEME } from '../Theme.js'
 import { Entypo } from '@expo/vector-icons';
 
 export const AddTodo = ({ onSubmit }) => {

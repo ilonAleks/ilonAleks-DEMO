@@ -3,10 +3,10 @@ import { StyleSheet, Text, View, Dimensions } from 'react-native'
 import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
-import { AppCard } from '../components/ui/AppCard'
-import { THEME } from '../theme'
-import { EditModal } from '../components/EditModal'
-import { AppButton } from '../components/ui/AppButton'
+import { AppCard } from '../components/ui/AppCard.js'
+import { THEME } from '../Theme.js'
+import { EditModal } from '../components/EditModal.js'
+import { AppButton } from '../components/ui/AppButton.js'
 
 export const TodoScreen = ({ goBack, todo, onRemove, onSave }) => {
 	const [modal, setModal] = useState(false)

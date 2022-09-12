@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import { StyleSheet, View, Alert } from 'react-native';
-import { Navbar } from './components/Navbar';
-import { TodoContext } from "./context/todo/TodoContext";
-import { MainScreen } from './screens/MainScreen';
-import { TodoScreen } from './screens/TodoScreen';
-import { THEME } from './theme';
+import { Navbar } from './components/Navbar.js';
+import { TodoContext } from "./context/todo/TodoContext.js";
+import { MainScreen } from './screens/MainScreen.js';
+import { TodoScreen } from './screens/TodoScreen.js';
+import { THEME } from './Theme.js';
 
 export const MainLayout = () => {
 	const { todos, addTodo, removeTodo, updateTodo } = useContext(TodoContext)

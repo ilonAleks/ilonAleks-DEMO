@@ -3,8 +3,8 @@ import { StyleSheet, TextInput, View, Button, Modal, Alert } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 
-import { THEME } from '../theme'
-import { AppButton } from './ui/AppButton'
+import { THEME } from '../Theme.js'
+import { AppButton } from './ui/AppButton.js'
 
 export const EditModal = ({ visible, onCancel, value, onSave }) => {
 	const [title, setTitle] = useState(value)
